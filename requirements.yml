@@ -39,3 +39,19 @@ non-functional:
   - 
 implicit:
   - 
+
+#Требования к cтранице профиля
+functional:
+  -
+non-functional:
+  - 
+implicit:
+  - 
+
+#Требования к блоку рейтинга игроков
+functional:
+  -
+non-functional:
+  - 
+implicit:
+  - 
