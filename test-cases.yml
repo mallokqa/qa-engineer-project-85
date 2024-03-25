@@ -20,21 +20,179 @@
 #Тест-кейсы к функционалу чата
 #Тест-кейсы к функционалу логина и регистрации
 - summary: |
-    Краткое описание тест-кейса. Пример: Проверка входа пользователя с существующими логином и паролем
+    Регистрация через Github
   requirement: |
-    Тестируемое требование. Например: При верном вводе логине и пароля пользователь должен войти в систему
-  prerequisites: |
-    Это условия, которые необходимы для проведения тест-кейса. Они должны быть выполнены еще до запуска тест-кейса.
-    Например: открыта страница логина
+    no-data
+  prerequisites: 
+    Должен быть аккаунт Github
   test-data: |
-    Тестовые данные
-    Логин = ilona Пароль = password
+    Github аккаунт
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
   steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку «Войти»
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign up" 
+    - Нажимаем кнопку "Sign in with Github"
+    - На странице Github вводим данные для логина
+    - Нажимаем кнопку "Authorize"
   expected-result: |
-    Пользователь должен попасть на главную страницу
+    Учетная запись на Codebattle создана
+
+- summary: |
+    Регистрация через Discord
+  requirement: |
+    no-data
+  prerequisites: 
+    Должен быть аккаунт Discord
+  test-data: |
+    Discord аккаунт
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign up" 
+    - Нажимаем кнопку "Sign in with Discord"
+    - На странице Discord вводим данные для логина
+    - Нажимаем кнопку "Authorize"
+  expected-result: |
+    Учетная запись на Codebattle создана
+
+- summary: |
+    Регистрация учетной записи
+  requirement: |
+    no-data
+  prerequisites: 
+    no-data
+  test-data: |
+    no-data
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign up" 
+    - Заполняем поля Nickname, Email, Pass, Pass Confirm
+    - Нажимаем кнопку Submit
+  expected-result: |
+    Учетная запись на Codebattle создана
+
+- summary: |
+    Проверка авторизации
+  requirement: |
+    no-data
+  prerequisites: 
+    no-data
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign in" 
+    - Заполняем поля email и pass
+    - Нажимаем кнопку Submit
+  expected-result: |
+    Пользователь попадает на /#lobby
+
+- summary: |
+    Проверка восстановления пароля
+  requirement: |
+    no-data
+  prerequisites: 
+    Предварительно должен быть создан аккаунт
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign in" 
+    - Нажимает "Forgot your password?"
+    - Вводим email нашей почты #test-data
+    - Нажимаем кнопку Submit
+    - Открываем письмо с восстановлением пароля на почтовом ящике
+    - Переходим по ссылке
+    - Восстанавливаем пароль
+    - Логинимся с новым паролем
+  expected-result: |
+    Пароль у учетной записи восстановлен
+
+- summary: |
+    Проверка поля nickname
+  requirement: |
+    Nickname должен иметь от 3 до 16 символов
+    Nickname поддерживает латинские символы
+    Nickname должен начинаться с латинской буквы
+    Nickname может содержать цифры
+    Nickname может содержать "_"
+    Nickname может содержать только одно "-"
+  prerequisites: 
+    no-data
+  test-data: |
+    no-data
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign up" 
+    - Вводим в "Nickname" значения соответствующие требованиям #requirement
+    - Заполняем остальные поля для регистрации
+    - Нажимаем кнопку Submit
+  expected-result: |
+    Учетная запись создана
+
+- summary: |
+    Проверка поля пароля
+  requirement: |
+    Пароль должен иметь от 6 до 16 символов
+  prerequisites: 
+    no-data
+  test-data: |
+    no-data
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign up" 
+    - Вводим в "Password" значения соответствующие требованиям #requirement
+    - Заполняем остальные поля для регистрации
+    - Нажимаем кнопку Submit
+  expected-result: |
+    Учетная запись создана
+
+- summary: |
+    Проверка поля подтверждения пароля
+  requirement: |
+    Поле подтверждения пароля должно совпадать с полем пароля
+  prerequisites: 
+    no-data
+  test-data: |
+    no-data
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign up" 
+    - Вводим в "Password Confirmation" значения не соответствующее из "Password"
+  expected-result: |
+    Выскакивает оповещение, что пароли не совпадают
+
+- summary: |
+    Проверка поля Email
+  requirement: |
+    Поле Email проверяет корректность почты
+  prerequisites: 
+    no-data
+  test-data: |
+    no-data
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign up" 
+    - Вводим в "Email" значения не без символа "@"
+  expected-result: |
+    Выскакивает оповещение invalid email
+
+- summary: |
+    Проверка заполнения всех полей регистрации
+  requirement: |
+    Все поля ввода обязательны
+  prerequisites: 
+    no-data
+  test-data: |
+    no-data
+  steps:
+    - Открываем страницу проекта
+    - Нажимаем кнопку "Sign up" 
+    - Нажимаем Submit
+  expected-result: |
+    Выскакивает оповещение у незаполненных полей
+
+
 #Тест-кейсы к cтранице профиля
 #Тест-кейсы к блоку рейтинга игроков
 #Тест-кейсы к странице users
