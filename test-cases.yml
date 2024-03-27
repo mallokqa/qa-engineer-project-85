@@ -1,23 +1,199 @@
 ---
 #Тест-кейсы к основному функционалу платформы
 - summary: |
-    Краткое описание тест-кейса. Пример: Проверка входа пользователя с существующими логином и паролем
+    Cоздание игры сложность elementary
   requirement: |
-    Тестируемое требование. Например: При верном вводе логине и пароля пользователь должен войти в систему
+    no-data
   prerequisites: |
-    Это условия, которые необходимы для проведения тест-кейса. Они должны быть выполнены еще до запуска тест-кейса.
-    Например: открыта страница логина
+    Пользователь авторизовался
   test-data: |
-    Тестовые данные
-    Логин = ilona Пароль = password
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
   steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку «Войти»
+    - Нажимаем "Create Game"
+    - Выбираем сложность elementary
+    - Нажимаем кнопку "Create Battle"
   expected-result: |
-    Пользователь должен попасть на главную страницу
+    Игра создана
 
-#Тест-кейсы к функционалу чата
+- summary: |
+    Cоздание игры сложность easy
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем сложность easy
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана
+
+- summary: |
+    Cоздание игры сложность medium
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем сложность medium
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана
+
+- summary: |
+    Cоздание игры сложность hard
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем сложность hard
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана
+
+- summary: |
+    Cоздание игры c человеком
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем "With other user"
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана
+
+- summary: |
+    Cоздание игры c другом
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем "With a friend"
+    - В выпадающем списке выбираем никнейм нужного пользователя
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана
+
+- summary: |
+    Cоздание игры c ботом
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем "With a bot"
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана
+
+- summary: |
+    Выбор времени созданной игры
+  requirement: |
+    Время игры от 3 до 60 минут
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем время игры с помощью ползунка
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана с выбранным таймером
+
+- summary: |
+    Выбор задания для игры
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем задание в выпадающем списке
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана с выбранным заданием
+
+- summary: |
+    Если задание не выбрано, то оно выбирается случайно
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Нажимаем кнопку "Create Battle"
+  expected-result: |
+    Игра создана с рандомным заданием
+
+- summary: |
+    Возможность сортировки заданий по доступным тегам
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - В поле tags выбираем любые нужные теги
+  expected-result: |
+    Изменяется кол-во доступных игр для выбора по определенным тегам
+
+- summary: |
+    Задания меняются в зависимости от выбранной сложности
+  requirement: |
+    no-data
+  prerequisites: |
+    Пользователь авторизовался
+  test-data: |
+    Логин = tstirovchik@gmail.com Пароль = qwertyforqa123
+  steps:
+    - Нажимаем "Create Game"
+    - Выбираем сложность игры 
+    - Фиксируем доступное количество заданий
+    - Переключаемся на другую сложность
+  expected-result: |
+    Набор доступных заданий меняется со сменой сложности 
+
+- summary: |
+    Созданная игра отображается в лобби для всех игроков
+  requirement: |
+    no-data
+  prerequisites: |
+    Игра создана пользователем
+  test-data: |
+    no-data
+  steps:
+    - Открываем страницу https://codebattle.hexlet.io/#lobby
+  expected-result: |
+    В списке игр лобби отображается наша игра
+
+
 #Тест-кейсы к функционалу логина и регистрации
 #Позитивные
 - summary: |
@@ -179,7 +355,7 @@
     - Заполняем остальные поля для регистрации
     - Нажимаем Submit
   expected-result: |
-  Регистрация проходит успешно
+    Регистрация проходит успешно
 
 - summary: |
     Проверка верхних граничных значений Nickname
@@ -196,9 +372,10 @@
     - Заполняем остальные поля для регистрации
     - Нажимаем Submit
   expected-result: |
-  Регистрация проходит успешно
+    Регистрация проходит успешно
 
-Проверка нижних граничных значений Password
+- summary: |
+    Проверка нижних граничных значений Password
   requirement: |
     Password должен иметь от 6 до 16 символов
   prerequisites: 
@@ -214,7 +391,8 @@
   expected-result: |
   Регистрация проходит успешно
 
-Проверка верхних граничных значений Password
+- summary: |
+  Проверка верхних граничных значений Password
   requirement: |
     Password должен иметь от 6 до 16 символов
   prerequisites: 
@@ -394,9 +572,10 @@
     - Заполняем остальные поля для регистрации
     - Нажимаем Submit
   expected-result: |
-  Появляется оповещение, что Nickname должен содержать только один пробел
+    Появляется оповещение, что Nickname должен содержать только один пробел
 
-Проверка нижних граничных значений (-1) Password
+- summary: |
+    Проверка нижних граничных значений (-1) Password
   requirement: |
     Password должен иметь от 6 до 16 символов
   prerequisites: 
@@ -410,9 +589,10 @@
     - Заполняем остальные поля для регистрации
     - Нажимаем Submit
   expected-result: |
-  Появляется оповещение, что Password должен быть от 6 до 16 символов
+    Появляется оповещение, что Password должен быть от 6 до 16 символов
 
-Проверка верхних граничных значений (+1) Password
+- summary: |
+    Проверка верхних граничных значений (+1) Password
   requirement: |
     Password должен иметь от 6 до 16 символов
   prerequisites: 
@@ -426,9 +606,9 @@
     - Заполняем остальные поля для регистрации
     - Нажимаем Submit
   expected-result: |
-  Появляется оповещение, что Password должен быть от 6 до 16 символов
+    Появляется оповещение, что Password должен быть от 6 до 16 символов
 
-
+#Тест-кейсы к функционалу чата
 #Тест-кейсы к cтранице профиля
 #Тест-кейсы к блоку рейтинга игроков
 #Тест-кейсы к странице users
